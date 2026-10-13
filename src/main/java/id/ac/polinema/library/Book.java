@@ -21,6 +21,7 @@ public class Book {
     private String title;
     private int year;
     private boolean available;
+    private Author author;
     /**
      * Membuat buku baru yang masih tersedia (belum dipinjam).
      * Bagian 3: isbn tidak boleh kosong; title dan year divalidasi seperti setter-nya.
@@ -121,4 +122,13 @@ public class Book {
         }
         this.year = year;
     }
+
+    public Author getAuthor(){
+        return author;
+    }
+
+    public void setAuthor(Author author){
+        this.author = author;
+    }
+    
 }

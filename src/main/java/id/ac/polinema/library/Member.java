@@ -18,6 +18,7 @@ public class Member {
     private String memberId;
     private String name;
     private int loanCount = 0;   // nilai awal 0
+    private LibraryCard card; 
     /**
      * Membuat anggota yang belum punya pinjaman.
      * memberId dan name tidak boleh null atau kosong: lempar
@@ -33,6 +34,7 @@ public class Member {
         }
         this.memberId = memberId;
         setName(name);
+        this.card = new LibraryCard("CARD-"+ memberId);
     }
 
     public String getMemberId() {
@@ -59,6 +61,10 @@ public class Member {
     public int getLoanCount() {
         // TODO Bantuan: kembalikan jumlah pinjaman saat ini.
         return loanCount;
+    }
+
+    public LibraryCard getCard(){
+        return card;
     }
 
     /** True jika anggota masih boleh meminjam (batasnya 3 pinjaman). */
