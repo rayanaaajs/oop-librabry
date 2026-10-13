@@ -17,7 +17,10 @@ package id.ac.polinema.library;
  *   public ____ available;
  */
 public class Book {
-
+    public String isbn;
+    public String title;
+    public int year;
+    public boolean available;
     /**
      * Membuat buku baru yang masih tersedia (belum dipinjam).
      * Bagian 3: isbn tidak boleh kosong; title dan year divalidasi seperti setter-nya.
@@ -28,33 +31,31 @@ public class Book {
         // memakai setter-nya?
         //
         // Kerangka (Bagian 2):
-        //   this.isbn = isbn;
-        //   this.title = ____;
-        //   this.year = ____;
-        //   this.available = ____;
+        this.isbn = isbn;
+        this.title = title;
+        this.year = year;
+        this.available = available;
         //
         // Kerangka (Bagian 3): ganti dua baris title dan year dengan pemanggilan setter.
         //   setTitle(____);
         //   setYear(____);
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public String getIsbn() {
         // TODO Bantuan: kembalikan data yang disimpan constructor.
         //
         // Kerangka:
-        //   return ____;
-        throw new UnsupportedOperationException("Not implemented yet");
+        return isbn ;
     }
 
     public String getTitle() {
         // TODO Bantuan: sama seperti getIsbn.
-        throw new UnsupportedOperationException("Not implemented yet");
+        return title;
     }
 
     public int getYear() {
         // TODO Bantuan: sama seperti getIsbn.
-        throw new UnsupportedOperationException("Not implemented yet");
+        return year;
     }
 
     /** True jika buku sedang ada di perpustakaan (tidak dipinjam). */
@@ -62,8 +63,7 @@ public class Book {
         // TODO Bantuan: field apa yang menyimpan status pinjam?
         //
         // Kerangka:
-        //   return ____;
-        throw new UnsupportedOperationException("Not implemented yet");
+        return true;
     }
 
     /**
@@ -75,12 +75,11 @@ public class Book {
         // Method ini punya dua jalur return yang berbeda.
         //
         // Kerangka:
-        //   if (____) {
-        //       return false;
-        //   }
-        //   ____ = false;
-        //   return true;
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (!available) {
+            return false;
+        }
+        available = false;
+        return true;
     }
 
     /** Mengembalikan buku: buku bisa dipinjam lagi. */
@@ -88,8 +87,7 @@ public class Book {
         // TODO Bantuan: satu baris saja. Status apa yang berubah?
         //
         // Kerangka:
-        //   ____ = true;
-        throw new UnsupportedOperationException("Not implemented yet");
+        available = true;
     }
 
     /**
@@ -101,11 +99,10 @@ public class Book {
         // memeriksa teks kosong atau hanya spasi. Jangan lupa kemungkinan null.
         //
         // Kerangka:
-        //   if (title == null || ____) {
-        //       throw new IllegalArgumentException("____");
-        //   }
-        //   this.title = title;
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (title == null || title.trim().isEmpty()) {
+            throw new IllegalArgumentException("judul tidak boleh kosong");
+        }
+        this.title = title;
     }
 
     /**
@@ -116,10 +113,10 @@ public class Book {
         // TODO Bantuan: pola yang sama dengan setTitle. Apa syarat tahun yang valid?
         //
         // Kerangka:
-        //   if (year ____ 0) {
-        //       throw new IllegalArgumentException("____");
-        //   }
-        //   this.year = year;
+        if (year < 0) {
+            throw new IllegalArgumentException("tahun tidak boleh kurang dari 0");
+        }
+        this.year = year;
         throw new UnsupportedOperationException("Not implemented yet");
     }
 }
