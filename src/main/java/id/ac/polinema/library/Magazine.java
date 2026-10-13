@@ -7,6 +7,10 @@ public class Magazine extends LibraryItem {
         super(title, year);
         this.issueNumber = issueNumber;
     }
+    
+    public Magazine(String title, int year) {
+        this(title, year, 1);
+    }
 
     public int getIssueNumber(){
         return issueNumber;

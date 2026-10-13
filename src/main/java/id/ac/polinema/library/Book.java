@@ -28,6 +28,11 @@ public class Book extends LibraryItem {
         this.isbn = isbn;
     }
 
+    public Book(String isbn, String title, int year, Author author) {
+        this(isbn, title, year);
+        this.author = author;
+    }
+
     public String getIsbn() {
         return isbn ;
     }
@@ -48,4 +53,19 @@ public class Book extends LibraryItem {
         this.author = author;
     }
 
+    @Override
+        public int loanDays() {
+            return 14;
+    }
+
+    @Override
+        public String describe(){
+            String authorName;
+            if (author == null) {
+                authorName = "Unknown";
+            } else {
+                authorName = author.getName();
+            }   
+            return super.describe() + " by " + authorName;   
+        }
 }
