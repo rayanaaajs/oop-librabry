@@ -14,8 +14,8 @@ package id.ac.polinema.library;
  *   public ____ country;
  */
 public class Author {
-    public String name;
-    public String country;
+    private String name;
+    private String country;
 
     /** Membuat penulis dengan nama dan negara asal. */
     public Author(String name, String country) {
@@ -25,7 +25,6 @@ public class Author {
         // Kerangka:
         this.name = name;
         this.country = country;
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 
     public String getName() {

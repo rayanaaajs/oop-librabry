@@ -15,7 +15,9 @@ package id.ac.polinema.library;
  *   private int loanCount;   // nilai awal 0
  */
 public class Member {
-
+    private String memberId;
+    private String name;
+    private int loanCount = 0;   // nilai awal 0
     /**
      * Membuat anggota yang belum punya pinjaman.
      * memberId dan name tidak boleh null atau kosong: lempar
@@ -26,22 +28,21 @@ public class Member {
         // Bagian 4: kartu anggota juga dibuat di sini (lihat diagram Bagian 4).
         //
         // Kerangka:
-        //   if (memberId == null || ____) {
-        //       throw new IllegalArgumentException("____");
-        //   }
-        //   this.memberId = memberId;
-        //   setName(____);
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (memberId == null || memberId.trim().isEmpty()) {
+            throw new IllegalArgumentException("memberId tidak boleh kosong");
+        }
+        this.memberId = memberId;
+        setName(name);
     }
 
     public String getMemberId() {
         // TODO Bantuan: kembalikan data yang disimpan constructor.
-        throw new UnsupportedOperationException("Not implemented yet");
+        return memberId;
     }
 
     public String getName() {
         // TODO Bantuan: sama seperti getMemberId.
-        throw new UnsupportedOperationException("Not implemented yet");
+        return name;
     }
 
     /** Nama tidak boleh null atau kosong: lempar IllegalArgumentException dan biarkan nama lama. */
@@ -49,16 +50,15 @@ public class Member {
         // TODO Bantuan: periksa dulu, baru isi field.
         //
         // Kerangka:
-        //   if (name == null || ____) {
-        //       throw new IllegalArgumentException("____");
-        //   }
-        //   this.name = name;
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("nama tidak boleh kosong");
+        }
+        this.name = name;
     }
 
     public int getLoanCount() {
         // TODO Bantuan: kembalikan jumlah pinjaman saat ini.
-        throw new UnsupportedOperationException("Not implemented yet");
+        return loanCount;
     }
 
     /** True jika anggota masih boleh meminjam (batasnya 3 pinjaman). */
@@ -66,8 +66,7 @@ public class Member {
         // TODO Bantuan: apakah perlu field baru, atau cukup dihitung dari data yang sudah ada?
         //
         // Kerangka:
-        //   return loanCount ____ 3;
-        throw new UnsupportedOperationException("Not implemented yet");
+        return loanCount < 3;
     }
 
     /** Menambah jumlah pinjaman. Jika sudah di batas, tidak berubah dan hasilnya false. */
@@ -76,12 +75,11 @@ public class Member {
         // menjawab pertanyaan "boleh atau tidak"?
         //
         // Kerangka:
-        //   if (!____) {
-        //       return false;
-        //   }
-        //   loanCount++;
-        //   return true;
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (!canBorrow()) {
+            return false;
+        }
+        loanCount++;
+        return true;
     }
 
     /** Mengurangi jumlah pinjaman. Jika sudah tidak ada pinjaman, tidak berubah dan hasilnya false. */
@@ -89,11 +87,11 @@ public class Member {
         // TODO Bantuan: batas bawah jumlah pinjaman adalah berapa?
         //
         // Kerangka:
-        //   if (loanCount == ____) {
-        //       return false;
-        //   }
-        //   loanCount--;
-        //   return true;
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (loanCount == 0) {
+            return false;
+        }
+        loanCount--;
+        return true;
+
     }
 }

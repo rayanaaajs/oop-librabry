@@ -17,10 +17,10 @@ package id.ac.polinema.library;
  *   public ____ available;
  */
 public class Book {
-    public String isbn;
-    public String title;
-    public int year;
-    public boolean available;
+    private String isbn;
+    private String title;
+    private int year;
+    private boolean available;
     /**
      * Membuat buku baru yang masih tersedia (belum dipinjam).
      * Bagian 3: isbn tidak boleh kosong; title dan year divalidasi seperti setter-nya.
@@ -31,10 +31,13 @@ public class Book {
         // memakai setter-nya?
         //
         // Kerangka (Bagian 2):
+        if (isbn == null || isbn.trim().isEmpty()) {
+            throw new IllegalArgumentException("isbn tidak boleh kosong");
+        }
         this.isbn = isbn;
-        this.title = title;
-        this.year = year;
-        this.available = available;
+        setTitle(title);
+        setYear(year);
+        this.available = true;
         //
         // Kerangka (Bagian 3): ganti dua baris title dan year dengan pemanggilan setter.
         //   setTitle(____);
@@ -63,7 +66,7 @@ public class Book {
         // TODO Bantuan: field apa yang menyimpan status pinjam?
         //
         // Kerangka:
-        return true;
+        return available;
     }
 
     /**
@@ -113,10 +116,9 @@ public class Book {
         // TODO Bantuan: pola yang sama dengan setTitle. Apa syarat tahun yang valid?
         //
         // Kerangka:
-        if (year < 0) {
-            throw new IllegalArgumentException("tahun tidak boleh kurang dari 0");
+        if (year <= 0) {
+            throw new IllegalArgumentException("tahun harus lebih dari 0");
         }
         this.year = year;
-        throw new UnsupportedOperationException("Not implemented yet");
     }
 }
