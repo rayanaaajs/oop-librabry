@@ -19,7 +19,7 @@ public class Main {
         // lalu jalankan programnya.
         //
         // Kerangka:
-        //   System.out.println("____");
+          System.out.println("Welcome to Polinema Library");
 
         // Bagian 7: lanjutkan di sini (buat Library, isi data contoh, jalankan LibraryApp).
     }
