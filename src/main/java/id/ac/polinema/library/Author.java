@@ -19,31 +19,19 @@ public class Author {
 
     /** Membuat penulis dengan nama dan negara asal. */
     public Author(String name, String country) {
-        // TODO Bantuan: nama parameter sama dengan nama field. Kata kunci apa yang
-        // menunjuk ke objek yang sedang dibuat?
-        //
-        // Kerangka:
         this.name = name;
         this.country = country;
     }
 
     public String getName() {
-        // TODO Bantuan: kembalikan data yang disimpan constructor.
-        //
-        // Kerangka:
         return name;
     }
 
     public String getCountry() {
-        // TODO Bantuan: sama seperti getName.
         return country;
     }
 
-    /** Teks berbentuk "nama (negara)". Contoh: Andrea Hirata (Indonesia). */
     public String getInfo() {
-        // TODO Bantuan: gabungkan dua data dengan operator + dan tanda kurung dalam String.
-        //
-        // Kerangka:
         return name + " (" + country + ")";
     }
 }

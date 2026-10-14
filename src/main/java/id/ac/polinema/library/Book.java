@@ -30,7 +30,7 @@ public class Book extends LibraryItem {
 
     public Book(String isbn, String title, int year, Author author) {
         this(isbn, title, year);
-        this.author = author;
+        setAuthor(author);
     }
 
     public String getIsbn() {
