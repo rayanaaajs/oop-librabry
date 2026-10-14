@@ -7,8 +7,8 @@ public class LibraryItem {
     private int extraDays = 0;
 
     LibraryItem(String title, int year){
-        this.title = title;
-        this.year = year;
+        setTitle(title);
+        setYear(year);
         this.available = true;
     }
 
