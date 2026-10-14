@@ -74,7 +74,7 @@ public class LibraryItem {
         extraDays += days;
     }
 
-    public int getTotalLoanDay(){
+    public int getTotalLoanDays(){
         return loanDays() + extraDays;
     }
     
