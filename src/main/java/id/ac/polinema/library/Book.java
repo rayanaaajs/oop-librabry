@@ -37,14 +37,6 @@ public class Book extends LibraryItem {
         return isbn ;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
     public Author getAuthor(){
         return author;
     }

@@ -6,7 +6,7 @@ public class LibraryItem {
     private boolean available;
     private int extraDays = 0;
 
-    LibraryItem(String title, int year){
+    public LibraryItem(String title, int year){
         setTitle(title);
         setYear(year);
         this.available = true;
