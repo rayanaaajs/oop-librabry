@@ -9,7 +9,7 @@ package id.ac.polinema.library;
  * Field tidak dideklarasikan di sini: baca diagram kelas di README.
  * Di Bagian 2 field boleh public. Di Bagian 3 kamu akan menutupnya.
  *
- * Kerangka field (lengkapi tipe dan nama dari diagram), letakkan di atas constructor:
+ * Kerangka field (lengkapi tipe dan nama dari diagram), letakkan d`i atas constructor:
  *   public ____ name;
  *   public ____ country;
  */
